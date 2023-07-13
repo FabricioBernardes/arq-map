@@ -1,6 +1,17 @@
-var map = L.map('map').setView([51.505, -0.09], 13);
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var map = L.map('map').setView([-31.946931, -52.099278], 10);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '© OpenStreetMap'
 }).addTo(map);
+
+for (const item of window.data) {
+    const popupContent = `
+    <p>Latitude: ${item.lat}<p>
+    <p>Longitude: ${item.long}<p>
+    `
+
+    L.marker([item.lat, item.long]).addTo(map)
+    .bindPopup(popupContent)
+}
+
+
