@@ -43,7 +43,23 @@ h6 {
     isolation: isolate;
 }
 
+.page-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
 #map {
-    width: 50vw;
-    height: 50vh;
+    width: 75vw;
+    height: 75vh;
+    max-width: 950px;
+    max-height: 600px;
+}
+
+@media (max-width: 768px){
+    #map {
+        width: 95vw;
+        height: 75vh;
+    }
 }
