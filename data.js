@@ -1,6 +1,7 @@
 window.data = [
     {
         "id": 1,
+        "title": "",
         "refs": {
             "Pernigotti e Almeida (1961)": "6 Casa Abandonada",
             "Brasil (1997)": "86",
@@ -10,6 +11,7 @@ window.data = [
     },
     {
         "id": 2,
+        "title": "",
         "refs": {
             "Pernigotti e Almeida (1961)": "5 Morro Grande",
             "Brasil (1997)": "92",
@@ -19,6 +21,7 @@ window.data = [
     },
     {
         "id": 3,
+        "title": "",
         "refs": {
             "Pernigotti e Almeida (1961)": "7 Eucaliptos",
         },
@@ -27,6 +30,7 @@ window.data = [
     },
     {
         "id": 4,
+        "title": "",
         "refs": {
             "Pernigotti e Almeida (1961)": "8 Vieira",
             "Naue et al (1971)": "sitio 15",
@@ -37,6 +41,7 @@ window.data = [
     },
     {
         "id": 5,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-38 Sport Clube Rio Grande",
         },
@@ -45,6 +50,7 @@ window.data = [
     },
     {
         "id": 6,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-37 Renato Frasca Cândido",
         },
@@ -53,6 +59,7 @@ window.data = [
     },
     {
         "id": 7,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-36 Ferro Velho",
         },
@@ -61,6 +68,7 @@ window.data = [
     },
     {
         "id": 8,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-35 Maximo Pereira da Silva",
         },
@@ -69,6 +77,7 @@ window.data = [
     },
     {
         "id": 9,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-34 João José Guedes",
         },
@@ -77,6 +86,7 @@ window.data = [
     },
     {
         "id": 10,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-33 Adi Oppa Rodrigues",
         },
@@ -85,6 +95,7 @@ window.data = [
     },
     {   
         "id": 11,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-32 Adão Silva",
         },
@@ -93,6 +104,7 @@ window.data = [
     },
     {
         "id": 12,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-31 Zeferino Pereira  ERRADO \/ CONFERIR LEPAN",
         },
@@ -101,6 +113,7 @@ window.data = [
     },
     {
         "id": 13,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-29 Ivon Silva",
         },
@@ -109,6 +122,7 @@ window.data = [
     },
     {
         "id": 14,
+        "title": "",
         "refs": {
             "Pernigotti e Almeida (1961)": "9 Rampa do vitorino",
         },
@@ -117,6 +131,7 @@ window.data = [
     },
     {
         "id": 15,
+        "title": "",
         "refs": {
             "Naue et al (1971)": "sitio 32",
             "Freitas (2005)": "RS-LS-01 Marcelino Amaral Brancão",
@@ -129,6 +144,7 @@ window.data = [
     },
     {
         "id": 16,
+        "title": "",
         "refs": {
             "Naue et al (1971)": "sitios 22\/23\/24",
             "Freitas (2005)": "RS-LS-24 Dunas",
@@ -140,6 +156,7 @@ window.data = [
     },
     {
         "id": 17,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-50",
         },
@@ -148,6 +165,7 @@ window.data = [
     },
     {
         "id": 18,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-20",
             "Naue et al (1971)": "Sitio 20",
@@ -158,6 +176,7 @@ window.data = [
     },
     {
         "id": 19,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "S\/n  (RS-RG-20)",
         },
@@ -166,6 +185,7 @@ window.data = [
     },
     {
         "id": 20,
+        "title": "",
         "refs": {
             "ref map": "Intercambio e Geopolitica",
         },
@@ -174,6 +194,7 @@ window.data = [
     },
     {
         "id": 21,
+        "title": "",
         "refs": {
             "Naue et al (1971)": "Sitio 36",
             "Freitas (2005)": "RS-LS-46 José Pedro Leggermann",
@@ -184,6 +205,7 @@ window.data = [
     },
     {
         "id": 22,
+        "title": "",
         "refs": {
             "ref map": "Intercambio e Geopolitica",
         },
@@ -192,6 +214,7 @@ window.data = [
     },
     {
         "id": 23,
+        "title": "",
         "refs": {
             "ref map": "Cleiton",
         },
@@ -200,6 +223,7 @@ window.data = [
     },
     {
         "id": 24,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-28",
             "Naue et al (1971)": "Sitio 28",
@@ -210,6 +234,7 @@ window.data = [
     },
     {
         "id": 25,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-10",
         },
@@ -218,6 +243,7 @@ window.data = [
     },
     {
         "id": 26,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "S\/n RS-RG-10",
         },
@@ -226,6 +252,7 @@ window.data = [
     },
     {
         "id": 27,
+        "title": "",
         "refs": {
             "ref map": "Intercambio e Geopolitica",
         },
@@ -234,6 +261,7 @@ window.data = [
     },
     {
         "id": 28,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-49",
         },
@@ -242,6 +270,7 @@ window.data = [
     },
     {
         "id": 29,
+        "title": "",
         "refs": {
             "ref map": "Intercambio e Geopolitica",
         },
@@ -250,6 +279,7 @@ window.data = [
     },
     {
         "id": 30,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "S\/n (RS-RG-49)",
         },
@@ -258,6 +288,7 @@ window.data = [
     },
     {
         "id": 31,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-11 Ariano Souza",
             "n cat lpn": "35 -> 40 ; 64, 65; 67; 453; 562;",
@@ -268,6 +299,7 @@ window.data = [
     },
     {
         "id": 32,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-65 Ariano Souza",
             "n cat lpn": "453",
@@ -278,6 +310,7 @@ window.data = [
     },
     {
         "id": 33,
+        "title": "",
         "refs": {
             "ref map": "Intercambio e Geopolitica",
         },
@@ -286,6 +319,7 @@ window.data = [
     },
     {
         "id": 34,
+        "title": "",
         "refs": {
             "ref map": "Intercambio e Geopolitica",
         },
@@ -294,6 +328,7 @@ window.data = [
     },
     {
         "id": 35,
+        "title": "",
         "refs": {
             "ref map": "Intercambio e Geopolitica",
         },
@@ -302,6 +337,7 @@ window.data = [
     },
     {
         "id": 36,
+        "title": "",
         "refs": {
             "ref map": "Intercambio e Geopolitica",
         },
@@ -310,6 +346,7 @@ window.data = [
     },
     {
         "id": 37,
+        "title": "",
         "refs": {
             "ref map": "Intercambio e Geopolitica",
         },
@@ -318,6 +355,7 @@ window.data = [
     },
     {
         "id": 38,
+        "title": "",
         "refs": {
             "Brasil (1997)": "90",
         },
@@ -326,6 +364,7 @@ window.data = [
     },
     {
         "id": 39,
+        "title": "",
         "refs": {
             "ref map": "Fabricio",
         },
@@ -334,6 +373,7 @@ window.data = [
     },
     {
         "id": 40,
+        "title": "",
         "refs": {
             "Naue et al (1971)": "sitio 35",
             "Brasil (1997)": "404",
@@ -343,6 +383,7 @@ window.data = [
     },
     {
         "id": 41,
+        "title": "",
         "refs": {
             "ref map": "Fabricio",
         },
@@ -351,6 +392,7 @@ window.data = [
     },
     {
         "id": 42,
+        "title": "",
         "refs": {
             "ref map": "Cleiton",
         },
@@ -359,6 +401,7 @@ window.data = [
     },
     {
         "id": 43,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-21",
             "Freitas (2005)": "RS-LS-85 Oscar Erocildo Abreu",
@@ -370,6 +413,7 @@ window.data = [
     },
     {
         "id": 44,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-03",
             "Naue et al (1971)": "sitio 3 b",
@@ -380,6 +424,7 @@ window.data = [
     },
     {
         "id": 45,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-03",
             "Naue et al (1971)": "Sitio 3 a",
@@ -390,6 +435,7 @@ window.data = [
     },
     {
         "id": 46,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-04",
             "Naue et al (1971)": "Sitio 4",
@@ -400,6 +446,7 @@ window.data = [
     },
     {
         "id": 47,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-14",
             "Naue et al (1971)": "Sitio 14",
@@ -410,6 +457,7 @@ window.data = [
     },
     {
         "id": 48,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-8",
             "Naue et al (1971)": "Sitio 8",
@@ -420,6 +468,7 @@ window.data = [
     },
     {
         "id": 49,
+        "title": "",
         "refs": {
             "Naue et al (1971)": "Sitio 2 c",
             "Brasil (1997)": "403",
@@ -429,6 +478,7 @@ window.data = [
     },
     {
         "id": 50,
+        "title": "",
         "refs": {
             "Naue et al (1971)": "Sitio 2 a",
             "Brasil (1997)": "RS 402",
@@ -438,6 +488,7 @@ window.data = [
     },
     {
         "id": 51,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-49 Antonio Carlos Rocha Cabreira",
         },
@@ -446,6 +497,7 @@ window.data = [
     },
     {
         "id": 52,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-91",
         },
@@ -454,6 +506,7 @@ window.data = [
     },
     {
         "id": 53,
+        "title": "",
         "refs": {
             "LEPAN RSLS": "RS-LS-79",
         },
@@ -462,6 +515,7 @@ window.data = [
     },
     {
         "id": 54,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-60 Korea",
         },
@@ -470,6 +524,7 @@ window.data = [
     },
     {
         "id": 55,
+        "title": "",
         "refs": {
             "Brasil (1997)": "85",
         },
@@ -478,6 +533,7 @@ window.data = [
     },
     {
         "id": 56,
+        "title": "",
         "refs": {
             "Naue et al (1971)": "Sitio 12a",
             "Brasil (1997)": "255",
@@ -487,6 +543,7 @@ window.data = [
     },
     {
         "id": 57,
+        "title": "",
         "refs": {
             "Naue et al (1971)": "sitio 33",
             "Freitas (2005)": "RS-LS-02 Clube dos Caçadores do Rio Grande",
@@ -497,6 +554,7 @@ window.data = [
     },
     {
         "id": 58,
+        "title": "",
         "refs": {
             "Schmitz (1976)": "RS-RG-48",
         },
@@ -505,6 +563,7 @@ window.data = [
     },
     {
         "id": 59,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-68-Lixão",
         },
@@ -513,6 +572,7 @@ window.data = [
     },
     {
         "id": 60,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-93 Claudiomiro Figueiredo Portanova 2",
         },
@@ -521,6 +581,7 @@ window.data = [
     },
     {
         "id": 61,
+        "title": "",
         "refs": {
             "Freitas (2005)": "RS-LS-48 Claudiomiro Figueiredo Portanova 1",
         },
@@ -529,6 +590,7 @@ window.data = [
     },
     {
         "id": 62,
+        "title": "",
         "refs": {
             
         },
@@ -537,6 +599,7 @@ window.data = [
     },
     {
         "id": 63,
+        "title": "",
         "refs": {
             
         },
@@ -545,6 +608,7 @@ window.data = [
     },
     {
         "id": 64,
+        "title": "",
         "refs": {
             
         },
@@ -553,6 +617,7 @@ window.data = [
     },
     {
         "id": 65,
+        "title": "",
         "refs": {
             
         },
@@ -561,6 +626,7 @@ window.data = [
     },
     {
         "id": 66,
+        "title": "",
         "refs": {
             
         },
@@ -569,6 +635,7 @@ window.data = [
     },
     {
         "id": 67,
+        "title": "",
         "refs": {
             
         },
@@ -577,6 +644,7 @@ window.data = [
     },
     {
         "id": 68,
+        "title": "",
         "refs": {
             
         },
@@ -585,6 +653,7 @@ window.data = [
     },
     {
         "id": 69,
+        "title": "",
         "refs": {
             
         },
@@ -593,6 +662,7 @@ window.data = [
     },
     {
         "id": 70,
+        "title": "",
         "refs": {
             
         },
@@ -601,6 +671,7 @@ window.data = [
     },
     {
         "id": 71,
+        "title": "",
         "refs": {
             
         },
@@ -609,6 +680,7 @@ window.data = [
     },
     {
         "id": 72,
+        "title": "",
         "refs": {
             
         },
@@ -617,6 +689,7 @@ window.data = [
     },
     {
         "id": 73,
+        "title": "",
         "refs": {
             
         },
@@ -625,6 +698,7 @@ window.data = [
     },
     {
         "id": 74,
+        "title": "",
         "refs": {
             
         },
@@ -633,6 +707,7 @@ window.data = [
     },
     {
         "id": 75,
+        "title": "",
         "refs": {
             
         },
