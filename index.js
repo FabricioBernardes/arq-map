@@ -10,7 +10,11 @@ for (const item of window.data) {
     <p>Longitude: ${item.long}<p>
     `
 
-    L.marker([item.lat, item.long]).addTo(map)
+    L.marker([item.lat, item.long],{
+        alt: item.id,
+        title: item.id
+    })
+    .addTo(map)
     .bindPopup(popupContent)
 }
 
