@@ -1,7 +1,7 @@
 window.data = [
     {
         "id": 1,
-        "title": "",
+        "title": "6 Casa Abandonada",
         "refs": {
             "Pernigotti e Almeida (1961)": "6 Casa Abandonada",
             "Brasil (1997)": "86",
@@ -11,7 +11,7 @@ window.data = [
     },
     {
         "id": 2,
-        "title": "",
+        "title": "5 Morro Grande",
         "refs": {
             "Pernigotti e Almeida (1961)": "5 Morro Grande",
             "Brasil (1997)": "92",
@@ -21,7 +21,7 @@ window.data = [
     },
     {
         "id": 3,
-        "title": "",
+        "title": "7 Eucaliptos",
         "refs": {
             "Pernigotti e Almeida (1961)": "7 Eucaliptos",
         },
@@ -30,7 +30,7 @@ window.data = [
     },
     {
         "id": 4,
-        "title": "",
+        "title": "8 Vieira",
         "refs": {
             "Pernigotti e Almeida (1961)": "8 Vieira",
             "Naue et al (1971)": "sitio 15",
@@ -41,7 +41,7 @@ window.data = [
     },
     {
         "id": 5,
-        "title": "",
+        "title": "RS-LS-38 Sport Clube Rio Grande",
         "refs": {
             "Freitas (2005)": "RS-LS-38 Sport Clube Rio Grande",
         },
@@ -50,7 +50,7 @@ window.data = [
     },
     {
         "id": 6,
-        "title": "",
+        "title": "RS-LS-37 Renato Frasca Cândido",
         "refs": {
             "Freitas (2005)": "RS-LS-37 Renato Frasca Cândido",
         },
@@ -59,7 +59,7 @@ window.data = [
     },
     {
         "id": 7,
-        "title": "",
+        "title": "RS-LS-36 Ferro Velho",
         "refs": {
             "Freitas (2005)": "RS-LS-36 Ferro Velho",
         },
@@ -68,7 +68,7 @@ window.data = [
     },
     {
         "id": 8,
-        "title": "",
+        "title": "RS-LS-35 Maximo Pereira da Silva",
         "refs": {
             "Freitas (2005)": "RS-LS-35 Maximo Pereira da Silva",
         },
@@ -77,7 +77,7 @@ window.data = [
     },
     {
         "id": 9,
-        "title": "",
+        "title": "RS-LS-34 João José Guedes",
         "refs": {
             "Freitas (2005)": "RS-LS-34 João José Guedes",
         },
@@ -86,7 +86,7 @@ window.data = [
     },
     {
         "id": 10,
-        "title": "",
+        "title": "RS-LS-33 Adi Oppa Rodrigues",
         "refs": {
             "Freitas (2005)": "RS-LS-33 Adi Oppa Rodrigues",
         },
@@ -95,7 +95,7 @@ window.data = [
     },
     {   
         "id": 11,
-        "title": "",
+        "title": "RS-LS-32 Adão Silva",
         "refs": {
             "Freitas (2005)": "RS-LS-32 Adão Silva",
         },
@@ -104,16 +104,16 @@ window.data = [
     },
     {
         "id": 12,
-        "title": "",
+        "title": "RS-LS-31 Zeferino Pereira",
         "refs": {
-            "Freitas (2005)": "RS-LS-31 Zeferino Pereira  ERRADO \/ CONFERIR LEPAN",
+            "Freitas (2005)": "RS-LS-31 Zeferino Pereira",
         },
         "long": -52.1511714,
         "lat": -32.07541
     },
     {
         "id": 13,
-        "title": "",
+        "title": "RS-LS-29 Ivon Silva",
         "refs": {
             "Freitas (2005)": "RS-LS-29 Ivon Silva",
         },
@@ -122,7 +122,7 @@ window.data = [
     },
     {
         "id": 14,
-        "title": "",
+        "title": "9 Rampa do vitorino",
         "refs": {
             "Pernigotti e Almeida (1961)": "9 Rampa do vitorino",
         },
@@ -131,7 +131,7 @@ window.data = [
     },
     {
         "id": 15,
-        "title": "",
+        "title": "sitio 32",
         "refs": {
             "Naue et al (1971)": "sitio 32",
             "Freitas (2005)": "RS-LS-01 Marcelino Amaral Brancão",
@@ -144,19 +144,18 @@ window.data = [
     },
     {
         "id": 16,
-        "title": "",
+        "title": "sitios 22/23/24",
         "refs": {
-            "Naue et al (1971)": "sitios 22\/23\/24",
-            "Freitas (2005)": "RS-LS-24 Dunas",
+            "Naue et al (1971)": "sitios 22/23/24",
             "Brasil (1997)": "RS 297; RS 298; RS 299",
-            "LEPAN RSLS": "RS-LS-19; RS-LS-24; RS-LS-84",
+            "Freitas (2005)": "RS-LS-24 Dunas",
         },
         "long": -52.2700361,
         "lat": -31.8599759
     },
     {
         "id": 17,
-        "title": "",
+        "title": "RS-RG-50",
         "refs": {
             "Schmitz (1976)": "RS-RG-50",
         },
@@ -165,7 +164,7 @@ window.data = [
     },
     {
         "id": 18,
-        "title": "",
+        "title": "RS-RG-20",
         "refs": {
             "Schmitz (1976)": "RS-RG-20",
             "Naue et al (1971)": "Sitio 20",
@@ -176,25 +175,25 @@ window.data = [
     },
     {
         "id": 19,
-        "title": "",
+        "title": "S/n  (RS-RG-20)",
         "refs": {
-            "Schmitz (1976)": "S\/n  (RS-RG-20)",
+            "Schmitz (1976)": "S/n  (RS-RG-20)",
         },
         "long": -52.2797525,
         "lat": -31.8353971
     },
     {
         "id": 20,
-        "title": "",
+        "title": "Não identificado",
         "refs": {
-            "ref map": "Intercambio e Geopolitica",
+            "Projeto Intercambio e Geopolitica": "Não identificado",
         },
         "long": -52.3005503,
         "lat": -31.8644637
     },
     {
         "id": 21,
-        "title": "",
+        "title": "Sitio 36",
         "refs": {
             "Naue et al (1971)": "Sitio 36",
             "Freitas (2005)": "RS-LS-46 José Pedro Leggermann",
@@ -205,25 +204,16 @@ window.data = [
     },
     {
         "id": 22,
-        "title": "",
+        "title": "Não identificado",
         "refs": {
-            "ref map": "Intercambio e Geopolitica",
+            "Projeto Intercambio e Geopolitica": "Não identificado",
         },
         "long": -52.30329,
         "lat": -31.8747528
     },
     {
-        "id": 23,
-        "title": "",
-        "refs": {
-            "ref map": "Cleiton",
-        },
-        "long": -52.2858769,
-        "lat": -31.9743843
-    },
-    {
         "id": 24,
-        "title": "",
+        "title": "RS-RG-28",
         "refs": {
             "Schmitz (1976)": "RS-RG-28",
             "Naue et al (1971)": "Sitio 28",
@@ -234,7 +224,7 @@ window.data = [
     },
     {
         "id": 25,
-        "title": "",
+        "title": "RS-RG-10",
         "refs": {
             "Schmitz (1976)": "RS-RG-10",
         },
@@ -243,25 +233,16 @@ window.data = [
     },
     {
         "id": 26,
-        "title": "",
+        "title": "s/n RS-RG-10",
         "refs": {
-            "Schmitz (1976)": "S\/n RS-RG-10",
+            "Schmitz (1976)": "S/n RS-RG-10",
         },
         "long": -52.2437707,
         "lat": -31.9814211
     },
     {
-        "id": 27,
-        "title": "",
-        "refs": {
-            "ref map": "Intercambio e Geopolitica",
-        },
-        "long": -52.2654495,
-        "lat": -31.8493024
-    },
-    {
         "id": 28,
-        "title": "",
+        "title": "RS-RG-49",
         "refs": {
             "Schmitz (1976)": "RS-RG-49",
         },
@@ -269,26 +250,17 @@ window.data = [
         "lat": -31.850549
     },
     {
-        "id": 29,
-        "title": "",
-        "refs": {
-            "ref map": "Intercambio e Geopolitica",
-        },
-        "long": -52.2639883,
-        "lat": -31.8465214
-    },
-    {
         "id": 30,
-        "title": "",
+        "title": "S\n (RS-RG-49)",
         "refs": {
-            "Schmitz (1976)": "S\/n (RS-RG-49)",
+            "Schmitz (1976)": "S/n (RS-RG-49)",
         },
         "long": -52.2606506,
         "lat": -31.8528314
     },
     {
         "id": 31,
-        "title": "",
+        "title": "RS-LS-11 Ariano Souza",
         "refs": {
             "Freitas (2005)": "RS-LS-11 Ariano Souza",
             "n cat lpn": "35 -> 40 ; 64, 65; 67; 453; 562;",
@@ -299,7 +271,7 @@ window.data = [
     },
     {
         "id": 32,
-        "title": "",
+        "title": "RS-LS-65 Ariano Souza",
         "refs": {
             "Freitas (2005)": "RS-LS-65 Ariano Souza",
             "n cat lpn": "453",
@@ -310,52 +282,52 @@ window.data = [
     },
     {
         "id": 33,
-        "title": "",
+        "title": "Não identificado",
         "refs": {
-            "ref map": "Intercambio e Geopolitica",
+            "Projeto Intercambio e Geopolitica": "Não identificado",
         },
         "long": -52.2587511,
         "lat": -31.8569203
     },
     {
         "id": 34,
-        "title": "",
+        "title": "Não identificado",
         "refs": {
-            "ref map": "Intercambio e Geopolitica",
+            "Projeto Intercambio e Geopolitica": "Não identificado",
         },
         "long": -52.2578438,
         "lat": -31.8586577
     },
     {
         "id": 35,
-        "title": "",
+        "title": "Não identificado",
         "refs": {
-            "ref map": "Intercambio e Geopolitica",
+            "Projeto Intercambio e Geopolitica": "Não identificado",
         },
         "long": -52.2580921,
         "lat": -31.8599777
     },
     {
         "id": 36,
-        "title": "",
+        "title": "Não identificado",
         "refs": {
-            "ref map": "Intercambio e Geopolitica",
+            "Projeto Intercambio e Geopolitica": "Não identificado",
         },
         "long": -52.2580026,
         "lat": -31.8616591
     },
     {
         "id": 37,
-        "title": "",
+        "title": "Não identificado",
         "refs": {
-            "ref map": "Intercambio e Geopolitica",
+            "Projeto Intercambio e Geopolitica": "Não identificado",
         },
         "long": -52.2572968,
         "lat": -31.8634898
     },
     {
         "id": 38,
-        "title": "",
+        "title": "90",
         "refs": {
             "Brasil (1997)": "90",
         },
@@ -363,17 +335,8 @@ window.data = [
         "lat": -31.8675211
     },
     {
-        "id": 39,
-        "title": "",
-        "refs": {
-            "ref map": "Fabricio",
-        },
-        "long": -52.2543639,
-        "lat": -31.8673429
-    },
-    {
         "id": 40,
-        "title": "",
+        "title": "sitio 35",
         "refs": {
             "Naue et al (1971)": "sitio 35",
             "Brasil (1997)": "404",
@@ -382,26 +345,8 @@ window.data = [
         "lat": -31.8789662
     },
     {
-        "id": 41,
-        "title": "",
-        "refs": {
-            "ref map": "Fabricio",
-        },
-        "long": -52.2791265,
-        "lat": -31.848028
-    },
-    {
-        "id": 42,
-        "title": "",
-        "refs": {
-            "ref map": "Cleiton",
-        },
-        "long": -52.1953635,
-        "lat": -32.0098502
-    },
-    {
         "id": 43,
-        "title": "",
+        "title": "RS-RG-21",
         "refs": {
             "Schmitz (1976)": "RS-RG-21",
             "Freitas (2005)": "RS-LS-85 Oscar Erocildo Abreu",
@@ -413,10 +358,10 @@ window.data = [
     },
     {
         "id": 44,
-        "title": "",
+        "title": "sitio 3 b",
         "refs": {
-            "Schmitz (1976)": "RS-RG-03",
             "Naue et al (1971)": "sitio 3 b",
+            "Schmitz (1976)": "RS-RG-03",
             "Freitas (2005)": "RS-LS-14 Morro do índio",
         },
         "long": -52.2423816,
@@ -424,10 +369,10 @@ window.data = [
     },
     {
         "id": 45,
-        "title": "",
+        "title": "Sitio 3 a",
         "refs": {
-            "Schmitz (1976)": "RS-RG-03",
             "Naue et al (1971)": "Sitio 3 a",
+            "Schmitz (1976)": "RS-RG-03",
             "Brasil (1997)": "246",
         },
         "long": -52.2390462,
@@ -435,10 +380,10 @@ window.data = [
     },
     {
         "id": 46,
-        "title": "",
+        "title": "Sitio 4",
         "refs": {
-            "Schmitz (1976)": "RS-RG-04",
             "Naue et al (1971)": "Sitio 4",
+            "Schmitz (1976)": "RS-RG-04",
             "Brasil (1997)": "247",
         },
         "long": -52.2567822,
@@ -446,10 +391,10 @@ window.data = [
     },
     {
         "id": 47,
-        "title": "",
+        "title": "Sitio 14",
         "refs": {
-            "Schmitz (1976)": "RS-RG-14",
             "Naue et al (1971)": "Sitio 14",
+            "Schmitz (1976)": "RS-RG-14",
             "Brasil (1997)": "250 a",
         },
         "long": -52.2445954,
@@ -457,10 +402,10 @@ window.data = [
     },
     {
         "id": 48,
-        "title": "",
+        "title": "Sitio 8",
         "refs": {
-            "Schmitz (1976)": "RS-RG-8",
             "Naue et al (1971)": "Sitio 8",
+            "Schmitz (1976)": "RS-RG-8",
             "Brasil (1997)": "250 b",
         },
         "long": -52.2435324,
@@ -468,7 +413,7 @@ window.data = [
     },
     {
         "id": 49,
-        "title": "",
+        "title": "Sitio 2 c",
         "refs": {
             "Naue et al (1971)": "Sitio 2 c",
             "Brasil (1997)": "403",
@@ -478,7 +423,7 @@ window.data = [
     },
     {
         "id": 50,
-        "title": "",
+        "title": "Sitio 2 a",
         "refs": {
             "Naue et al (1971)": "Sitio 2 a",
             "Brasil (1997)": "RS 402",
@@ -488,7 +433,7 @@ window.data = [
     },
     {
         "id": 51,
-        "title": "",
+        "title": "RS-LS-49 Antonio Carlos Rocha Cabreira",
         "refs": {
             "Freitas (2005)": "RS-LS-49 Antonio Carlos Rocha Cabreira",
         },
@@ -497,7 +442,7 @@ window.data = [
     },
     {
         "id": 52,
-        "title": "",
+        "title": "RS-LS-91",
         "refs": {
             "Freitas (2005)": "RS-LS-91",
         },
@@ -506,16 +451,16 @@ window.data = [
     },
     {
         "id": 53,
-        "title": "",
+        "title": "RS-LS-79",
         "refs": {
-            "LEPAN RSLS": "RS-LS-79",
+            "Freitas (2005)": "RS-LS-79",
         },
         "long": -52.1256205,
         "lat": -31.9824691
     },
     {
         "id": 54,
-        "title": "",
+        "title": "RS-LS-60 Korea",
         "refs": {
             "Freitas (2005)": "RS-LS-60 Korea",
         },
@@ -524,7 +469,7 @@ window.data = [
     },
     {
         "id": 55,
-        "title": "",
+        "title": "85",
         "refs": {
             "Brasil (1997)": "85",
         },
@@ -533,7 +478,7 @@ window.data = [
     },
     {
         "id": 56,
-        "title": "",
+        "title": "Sitio 12a",
         "refs": {
             "Naue et al (1971)": "Sitio 12a",
             "Brasil (1997)": "255",
@@ -543,7 +488,7 @@ window.data = [
     },
     {
         "id": 57,
-        "title": "",
+        "title": "sitio 33",
         "refs": {
             "Naue et al (1971)": "sitio 33",
             "Freitas (2005)": "RS-LS-02 Clube dos Caçadores do Rio Grande",
@@ -554,7 +499,7 @@ window.data = [
     },
     {
         "id": 58,
-        "title": "",
+        "title": "RS-RG-48",
         "refs": {
             "Schmitz (1976)": "RS-RG-48",
         },
@@ -563,7 +508,7 @@ window.data = [
     },
     {
         "id": 59,
-        "title": "",
+        "title": "RS-LS-68-Lixão",
         "refs": {
             "Freitas (2005)": "RS-LS-68-Lixão",
         },
@@ -572,7 +517,7 @@ window.data = [
     },
     {
         "id": 60,
-        "title": "",
+        "title": "RS-LS-93 Claudiomiro Figueiredo Portanova 2",
         "refs": {
             "Freitas (2005)": "RS-LS-93 Claudiomiro Figueiredo Portanova 2",
         },
@@ -581,7 +526,7 @@ window.data = [
     },
     {
         "id": 61,
-        "title": "",
+        "title": "RS-LS-48 Claudiomiro Figueiredo Portanova 1",
         "refs": {
             "Freitas (2005)": "RS-LS-48 Claudiomiro Figueiredo Portanova 1",
         },
@@ -590,126 +535,126 @@ window.data = [
     },
     {
         "id": 62,
-        "title": "",
+        "title": "Cerrito 14",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 14"
         },
         "long": -52.2319957,
         "lat": -31.9023699
     },
     {
         "id": 63,
-        "title": "",
+        "title": "Cerrito 13",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 13"
         },
         "long": -52.2311811,
         "lat": -31.9040957
     },
     {
         "id": 64,
-        "title": "",
+        "title": "Cerrito 2",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 2"
         },
         "long": -52.2246702,
         "lat": -31.9209642
     },
     {
         "id": 65,
-        "title": "",
+        "title": "Cerrito 4",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 4"
         },
         "long": -52.2318726,
         "lat": -31.920116
     },
     {
         "id": 66,
-        "title": "",
+        "title": "Cerrito 6",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 6"
         },
         "long": -52.2251181,
         "lat": -31.9172537
     },
     {
         "id": 67,
-        "title": "",
+        "title": "Cerrito 7",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 7"
         },
         "long": -52.2259737,
         "lat": -31.9151759
     },
     {
         "id": 68,
-        "title": "",
+        "title": "Cerrito 8",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 8"
         },
         "long": -52.2265206,
         "lat": -31.9130685
     },
     {
         "id": 69,
-        "title": "",
+        "title": "Cerrito 1",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 1"
         },
         "long": -52.2250248,
         "lat": -31.9233271
     },
     {
         "id": 70,
-        "title": "",
+        "title": "Cerrito 9",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 9"
         },
         "long": -52.2277875,
         "lat": -31.9092182
     },
     {
         "id": 71,
-        "title": "",
+        "title": "Cerrito 10",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 10"
         },
         "long": -52.2285374,
         "lat": -31.9079558
     },
     {
         "id": 72,
-        "title": "",
+        "title": "Cerrito 12",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 12"
         },
         "long": -52.2372704,
         "lat": -31.9026447
     },
     {
         "id": 73,
-        "title": "",
+        "title": "Cerrito 11",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 11"
         },
         "long": -52.2350035,
         "lat": -31.9044248
     },
     {
         "id": 74,
-        "title": "",
+        "title": "Cerrito 5",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 5"
         },
         "long": -52.2232227,
         "lat": -31.9184977
     },
     {
         "id": 75,
-        "title": "",
+        "title": "Cerrito 3",
         "refs": {
-            
+            "Naue (1973)": "Cerrito 3"
         },
         "long": -52.224638,
         "lat": -31.9188404

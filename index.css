@@ -51,10 +51,10 @@ h6 {
 }
 
 #map {
-    width: 75vw;
-    height: 75vh;
-    max-width: 950px;
-    max-height: 600px;
+    width: 100vw;
+    height: 100vh;
+    /* max-width: 950px; */
+    /* max-height: 600px; */
 }
 
 @media (max-width: 768px){
@@ -62,4 +62,12 @@ h6 {
         width: 95vw;
         height: 75vh;
     }
+}
+
+.leaflet-popup-content h3{
+    margin: 0 0 10px 0 !important;
+}
+
+.leaflet-popup-content p{
+    margin: 0 0 5px 0 !important;
 }

@@ -6,8 +6,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 for (const item of window.data) {
     const popupContent = `
-    <p>Latitude: ${item.lat}<p>
-    <p>Longitude: ${item.long}<p>
+    <h3>${item.title}</h3>
+    <p>id: ${item.id}</p>
+    <p>Latitude: ${item.lat}</p>
+    <p>Longitude: ${item.long}</p>
     `
 
     L.marker([item.lat, item.long],{
