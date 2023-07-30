@@ -2,6 +2,7 @@ window.data = [
     {
         "id": 1,
         "title": "6 Casa Abandonada",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Pernigotti e Almeida (1961)": "6 Casa Abandonada",
             "Brasil (1997)": "86",
@@ -12,6 +13,7 @@ window.data = [
     {
         "id": 2,
         "title": "5 Morro Grande",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Pernigotti e Almeida (1961)": "5 Morro Grande",
             "Brasil (1997)": "92",
@@ -22,6 +24,7 @@ window.data = [
     {
         "id": 3,
         "title": "7 Eucaliptos",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Pernigotti e Almeida (1961)": "7 Eucaliptos",
         },
@@ -31,6 +34,7 @@ window.data = [
     {
         "id": 4,
         "title": "8 Vieira",
+        "type": "Cerrito/Sítio sobre dunas",
         "refs": {
             "Pernigotti e Almeida (1961)": "8 Vieira",
             "Naue et al (1971)": "sitio 15",
@@ -42,6 +46,7 @@ window.data = [
     {
         "id": 5,
         "title": "RS-LS-38 Sport Clube Rio Grande",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Freitas (2005)": "RS-LS-38 Sport Clube Rio Grande",
         },
@@ -51,6 +56,7 @@ window.data = [
     {
         "id": 6,
         "title": "RS-LS-37 Renato Frasca Cândido",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Freitas (2005)": "RS-LS-37 Renato Frasca Cândido",
         },
@@ -60,6 +66,7 @@ window.data = [
     {
         "id": 7,
         "title": "RS-LS-36 Ferro Velho",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Freitas (2005)": "RS-LS-36 Ferro Velho",
         },
@@ -67,17 +74,9 @@ window.data = [
         "lat": -32.0824012
     },
     {
-        "id": 8,
-        "title": "RS-LS-35 Maximo Pereira da Silva",
-        "refs": {
-            "Freitas (2005)": "RS-LS-35 Maximo Pereira da Silva",
-        },
-        "long": -52.155029,
-        "lat": -32.0863442
-    },
-    {
         "id": 9,
         "title": "RS-LS-34 João José Guedes",
+        "type": "",
         "refs": {
             "Freitas (2005)": "RS-LS-34 João José Guedes",
         },
@@ -87,6 +86,7 @@ window.data = [
     {
         "id": 10,
         "title": "RS-LS-33 Adi Oppa Rodrigues",
+        "type": "",
         "refs": {
             "Freitas (2005)": "RS-LS-33 Adi Oppa Rodrigues",
         },
@@ -96,6 +96,7 @@ window.data = [
     {   
         "id": 11,
         "title": "RS-LS-32 Adão Silva",
+        "type": "",
         "refs": {
             "Freitas (2005)": "RS-LS-32 Adão Silva",
         },
@@ -105,6 +106,7 @@ window.data = [
     {
         "id": 12,
         "title": "RS-LS-31 Zeferino Pereira",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Freitas (2005)": "RS-LS-31 Zeferino Pereira",
         },
@@ -114,6 +116,7 @@ window.data = [
     {
         "id": 13,
         "title": "RS-LS-29 Ivon Silva",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Freitas (2005)": "RS-LS-29 Ivon Silva",
         },
@@ -123,8 +126,10 @@ window.data = [
     {
         "id": 14,
         "title": "9 Rampa do vitorino",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Pernigotti e Almeida (1961)": "9 Rampa do vitorino",
+            "Freitas (2005)": "RS-LS-35 Maximo Pereira da Silva",
         },
         "long": -52.1553439,
         "lat": -32.0872244
@@ -132,12 +137,11 @@ window.data = [
     {
         "id": 15,
         "title": "sitio 32",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Naue et al (1971)": "sitio 32",
             "Freitas (2005)": "RS-LS-01 Marcelino Amaral Brancão",
             "Brasil (1997)": "413",
-            "n cat lpn": "01, 02, 03 - 45",
-            "LEPAN RSLS": "RS-LS-01",
         },
         "long": -52.2843542,
         "lat": -32.0302723
@@ -145,6 +149,7 @@ window.data = [
     {
         "id": 16,
         "title": "sitios 22/23/24",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Naue et al (1971)": "sitios 22/23/24",
             "Brasil (1997)": "RS 297; RS 298; RS 299",
@@ -156,6 +161,7 @@ window.data = [
     {
         "id": 17,
         "title": "RS-RG-50",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "RS-RG-50",
         },
@@ -165,6 +171,7 @@ window.data = [
     {
         "id": 18,
         "title": "RS-RG-20",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "RS-RG-20",
             "Naue et al (1971)": "Sitio 20",
@@ -176,6 +183,7 @@ window.data = [
     {
         "id": 19,
         "title": "S/n  (RS-RG-20)",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "S/n  (RS-RG-20)",
         },
@@ -185,6 +193,7 @@ window.data = [
     {
         "id": 20,
         "title": "Não identificado",
+        "type": "Cerrito",
         "refs": {
             "Projeto Intercambio e Geopolitica": "Não identificado",
         },
@@ -194,6 +203,7 @@ window.data = [
     {
         "id": 21,
         "title": "Sitio 36",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Naue et al (1971)": "Sitio 36",
             "Freitas (2005)": "RS-LS-46 José Pedro Leggermann",
@@ -205,6 +215,7 @@ window.data = [
     {
         "id": 22,
         "title": "Não identificado",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Projeto Intercambio e Geopolitica": "Não identificado",
         },
@@ -214,6 +225,7 @@ window.data = [
     {
         "id": 24,
         "title": "RS-RG-28",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "RS-RG-28",
             "Naue et al (1971)": "Sitio 28",
@@ -225,6 +237,7 @@ window.data = [
     {
         "id": 25,
         "title": "RS-RG-10",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "RS-RG-10",
         },
@@ -233,7 +246,8 @@ window.data = [
     },
     {
         "id": 26,
-        "title": "s/n RS-RG-10",
+        "title": "s/n (RS-RG-10)",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "S/n RS-RG-10",
         },
@@ -243,6 +257,7 @@ window.data = [
     {
         "id": 28,
         "title": "RS-RG-49",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "RS-RG-49",
         },
@@ -251,7 +266,8 @@ window.data = [
     },
     {
         "id": 30,
-        "title": "S\n (RS-RG-49)",
+        "title": "S/n (RS-RG-49)",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "S/n (RS-RG-49)",
         },
@@ -261,6 +277,7 @@ window.data = [
     {
         "id": 31,
         "title": "RS-LS-11 Ariano Souza",
+        "type": "Cerrito",
         "refs": {
             "Freitas (2005)": "RS-LS-11 Ariano Souza",
             "n cat lpn": "35 -> 40 ; 64, 65; 67; 453; 562;",
@@ -272,6 +289,7 @@ window.data = [
     {
         "id": 32,
         "title": "RS-LS-65 Ariano Souza",
+        "type": "Cerrito",
         "refs": {
             "Freitas (2005)": "RS-LS-65 Ariano Souza",
             "n cat lpn": "453",
@@ -283,6 +301,7 @@ window.data = [
     {
         "id": 33,
         "title": "Não identificado",
+        "type": "Cerrito",
         "refs": {
             "Projeto Intercambio e Geopolitica": "Não identificado",
         },
@@ -292,6 +311,7 @@ window.data = [
     {
         "id": 34,
         "title": "Não identificado",
+        "type": "Cerrito",
         "refs": {
             "Projeto Intercambio e Geopolitica": "Não identificado",
         },
@@ -301,6 +321,7 @@ window.data = [
     {
         "id": 35,
         "title": "Não identificado",
+        "type": "Cerrito",
         "refs": {
             "Projeto Intercambio e Geopolitica": "Não identificado",
         },
@@ -310,6 +331,7 @@ window.data = [
     {
         "id": 36,
         "title": "Não identificado",
+        "type": "Cerrito",
         "refs": {
             "Projeto Intercambio e Geopolitica": "Não identificado",
         },
@@ -319,6 +341,7 @@ window.data = [
     {
         "id": 37,
         "title": "Não identificado",
+        "type": "Cerrito",
         "refs": {
             "Projeto Intercambio e Geopolitica": "Não identificado",
         },
@@ -328,6 +351,7 @@ window.data = [
     {
         "id": 38,
         "title": "90",
+        "type": "Cerrito",
         "refs": {
             "Brasil (1997)": "90",
         },
@@ -337,6 +361,7 @@ window.data = [
     {
         "id": 40,
         "title": "sitio 35",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Naue et al (1971)": "sitio 35",
             "Brasil (1997)": "404",
@@ -347,6 +372,7 @@ window.data = [
     {
         "id": 43,
         "title": "RS-RG-21",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "RS-RG-21",
             "Freitas (2005)": "RS-LS-85 Oscar Erocildo Abreu",
@@ -359,6 +385,7 @@ window.data = [
     {
         "id": 44,
         "title": "sitio 3 b",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Naue et al (1971)": "sitio 3 b",
             "Schmitz (1976)": "RS-RG-03",
@@ -370,6 +397,7 @@ window.data = [
     {
         "id": 45,
         "title": "Sitio 3 a",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Naue et al (1971)": "Sitio 3 a",
             "Schmitz (1976)": "RS-RG-03",
@@ -381,6 +409,7 @@ window.data = [
     {
         "id": 46,
         "title": "Sitio 4",
+        "type": "Cerrito",
         "refs": {
             "Naue et al (1971)": "Sitio 4",
             "Schmitz (1976)": "RS-RG-04",
@@ -392,6 +421,7 @@ window.data = [
     {
         "id": 47,
         "title": "Sitio 14",
+        "type": "Cerrito",
         "refs": {
             "Naue et al (1971)": "Sitio 14",
             "Schmitz (1976)": "RS-RG-14",
@@ -403,6 +433,7 @@ window.data = [
     {
         "id": 48,
         "title": "Sitio 8",
+        "type": "Cerrito",
         "refs": {
             "Naue et al (1971)": "Sitio 8",
             "Schmitz (1976)": "RS-RG-8",
@@ -414,6 +445,7 @@ window.data = [
     {
         "id": 49,
         "title": "Sitio 2 c",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Naue et al (1971)": "Sitio 2 c",
             "Brasil (1997)": "403",
@@ -424,6 +456,7 @@ window.data = [
     {
         "id": 50,
         "title": "Sitio 2 a",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Naue et al (1971)": "Sitio 2 a",
             "Brasil (1997)": "RS 402",
@@ -432,63 +465,20 @@ window.data = [
         "lat": -31.9109702
     },
     {
-        "id": 51,
-        "title": "RS-LS-49 Antonio Carlos Rocha Cabreira",
-        "refs": {
-            "Freitas (2005)": "RS-LS-49 Antonio Carlos Rocha Cabreira",
-        },
-        "long": -52.1531162,
-        "lat": -31.9851015
-    },
-    {
-        "id": 52,
-        "title": "RS-LS-91",
-        "refs": {
-            "Freitas (2005)": "RS-LS-91",
-        },
-        "long": -52.1479763,
-        "lat": -31.984295
-    },
-    {
-        "id": 53,
-        "title": "RS-LS-79",
-        "refs": {
-            "Freitas (2005)": "RS-LS-79",
-        },
-        "long": -52.1256205,
-        "lat": -31.9824691
-    },
-    {
-        "id": 54,
-        "title": "RS-LS-60 Korea",
-        "refs": {
-            "Freitas (2005)": "RS-LS-60 Korea",
-        },
-        "long": -52.118464,
-        "lat": -31.9855716
-    },
-    {
         "id": 55,
-        "title": "85",
+        "title": "11",
+        "type": "Sítio sobre dunas",
         "refs": {
+            "pernigotti e Almeida": "11",
             "Brasil (1997)": "85",
         },
         "long": -52.1264928,
         "lat": -32.0497055
     },
     {
-        "id": 56,
-        "title": "Sitio 12a",
-        "refs": {
-            "Naue et al (1971)": "Sitio 12a",
-            "Brasil (1997)": "255",
-        },
-        "long": -52.3199392,
-        "lat": -31.8570966
-    },
-    {
         "id": 57,
         "title": "sitio 33",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Naue et al (1971)": "sitio 33",
             "Freitas (2005)": "RS-LS-02 Clube dos Caçadores do Rio Grande",
@@ -500,6 +490,7 @@ window.data = [
     {
         "id": 58,
         "title": "RS-RG-48",
+        "type": "Cerrito",
         "refs": {
             "Schmitz (1976)": "RS-RG-48",
         },
@@ -509,6 +500,7 @@ window.data = [
     {
         "id": 59,
         "title": "RS-LS-68-Lixão",
+        "type": "Sítio sobre dunas",
         "refs": {
             "Freitas (2005)": "RS-LS-68-Lixão",
         },
@@ -516,26 +508,9 @@ window.data = [
         "lat": -32.0727507
     },
     {
-        "id": 60,
-        "title": "RS-LS-93 Claudiomiro Figueiredo Portanova 2",
-        "refs": {
-            "Freitas (2005)": "RS-LS-93 Claudiomiro Figueiredo Portanova 2",
-        },
-        "long": -52.1459975,
-        "lat": -32.0179569
-    },
-    {
-        "id": 61,
-        "title": "RS-LS-48 Claudiomiro Figueiredo Portanova 1",
-        "refs": {
-            "Freitas (2005)": "RS-LS-48 Claudiomiro Figueiredo Portanova 1",
-        },
-        "long": -52.1478293,
-        "lat": -32.0189163
-    },
-    {
         "id": 62,
         "title": "Cerrito 14",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 14"
         },
@@ -545,6 +520,7 @@ window.data = [
     {
         "id": 63,
         "title": "Cerrito 13",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 13"
         },
@@ -554,6 +530,7 @@ window.data = [
     {
         "id": 64,
         "title": "Cerrito 2",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 2"
         },
@@ -563,6 +540,7 @@ window.data = [
     {
         "id": 65,
         "title": "Cerrito 4",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 4"
         },
@@ -572,6 +550,7 @@ window.data = [
     {
         "id": 66,
         "title": "Cerrito 6",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 6"
         },
@@ -581,6 +560,7 @@ window.data = [
     {
         "id": 67,
         "title": "Cerrito 7",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 7"
         },
@@ -590,6 +570,7 @@ window.data = [
     {
         "id": 68,
         "title": "Cerrito 8",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 8"
         },
@@ -599,6 +580,7 @@ window.data = [
     {
         "id": 69,
         "title": "Cerrito 1",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 1"
         },
@@ -608,6 +590,7 @@ window.data = [
     {
         "id": 70,
         "title": "Cerrito 9",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 9"
         },
@@ -617,6 +600,7 @@ window.data = [
     {
         "id": 71,
         "title": "Cerrito 10",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 10"
         },
@@ -626,6 +610,7 @@ window.data = [
     {
         "id": 72,
         "title": "Cerrito 12",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 12"
         },
@@ -635,6 +620,7 @@ window.data = [
     {
         "id": 73,
         "title": "Cerrito 11",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 11"
         },
@@ -644,6 +630,7 @@ window.data = [
     {
         "id": 74,
         "title": "Cerrito 5",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 5"
         },
@@ -653,6 +640,7 @@ window.data = [
     {
         "id": 75,
         "title": "Cerrito 3",
+        "type": "Cerrito",
         "refs": {
             "Naue (1973)": "Cerrito 3"
         },
