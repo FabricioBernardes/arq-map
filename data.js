@@ -469,7 +469,7 @@ window.data = [
         "title": "11",
         "type": "Sítio sobre dunas",
         "refs": {
-            "pernigotti e Almeida": "11",
+            "Pernigotti e Almeida (1961)": "11",
             "Brasil (1997)": "85",
         },
         "long": -52.1264928,

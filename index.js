@@ -4,13 +4,29 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
 
+function createRefList(refs) {
+    let listItems = "";
+    for (const ref in refs) {
+        listItems += `<li>
+                        <b>${ref}:</b> ${refs[ref]}
+                    </li>`;
+    }
+    return listItems;
+}
+
 for (const item of window.data) {
+    const refList = createRefList(item.refs);
+
     const popupContent = `
-    <h3>${item.title}</h3>
-    <p>id: ${item.id}</p>
-    <p>Latitude: ${item.lat}</p>
-    <p>Longitude: ${item.long}</p>
-    `
+        <h3>${item.title}</h3>
+        <p>${item.type}</p>
+        <p>Latitude: ${item.lat}</p>
+        <p>Longitude: ${item.long}</p>
+        <p>Referências:</p>
+        <ul>
+            ${refList}
+        </ul>
+    `;
 
     L.marker([item.lat, item.long],{
         alt: item.id,
