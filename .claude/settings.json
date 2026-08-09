@@ -15,7 +15,22 @@
       "Read(//home/fbernardes/.cache/ms-playwright/chromium-1228/**)",
       "Read(//home/fbernardes/.cache/ms-playwright/chromium_headless_shell-1228/**)",
       "Bash(lsof -ti:8123 -sTCP:LISTEN)",
-      "Bash(xargs -r kill)"
+      "Bash(xargs -r kill)",
+      "Bash(pdftotext -layout /home/fbernardes/git/arq-map/dissertacao_fabricio_bernardes.pdf diss.txt)",
+      "Bash(node --check data.js)",
+      "Bash(node --check index.js)",
+      "Bash(npx --yes chromium-cli --help)",
+      "Bash(bash -lc 'command -v playwright; python3 -c \"import playwright\" 2>&1 | tail -1; command -v google-chrome chromium chromium-browser 2>&1')",
+      "Bash(playwright --version)",
+      "Bash(node -e \"console.log\\(require.resolve\\('playwright'\\)\\)\")",
+      "Bash(playwright screenshot *)",
+      "Bash(sed -i 's/await page.click\\('\\\\''#site-list li'\\\\''\\);/await page.locator\\('\\\\''#site-list li:visible'\\\\''\\).first\\(\\).click\\(\\);/' /tmp/claude-1000/-home-fbernardes-git-arq-map/f34bd7c2-24fc-48c1-930b-93a8ba9a8ef2/scratchpad/probe.js)",
+      "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules SCRATCH=/tmp/claude-1000/-home-fbernardes-git-arq-map/f34bd7c2-24fc-48c1-930b-93a8ba9a8ef2/scratchpad node /tmp/claude-1000/-home-fbernardes-git-arq-map/f34bd7c2-24fc-48c1-930b-93a8ba9a8ef2/scratchpad/probe.js)",
+      "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/f34bd7c2-24fc-48c1-930b-93a8ba9a8ef2/scratchpad/probe2.js)",
+      "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/f34bd7c2-24fc-48c1-930b-93a8ba9a8ef2/scratchpad/probe3.js)",
+      "Bash(lsof -ti:8791 -sTCP:LISTEN)",
+      "Bash(node --check /home/fbernardes/git/arq-map/index.js)",
+      "Bash(lsof -ti:8792 -sTCP:LISTEN)"
     ]
   }
 }
