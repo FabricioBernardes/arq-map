@@ -41,7 +41,27 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "© OpenStreetMap"
 }).addTo(map);
 const clusterGroup = L.markerClusterGroup();
-map.addLayer(clusterGroup);
+const plainGroup = L.layerGroup();
+let clusteringEnabled = true;
+let activeGroup = clusterGroup;
+map.addLayer(activeGroup);
+function setClusteringEnabled(enabled) {
+    if (enabled === clusteringEnabled) {
+        return;
+    }
+    const newGroup = enabled ? clusterGroup : plainGroup;
+    const oldGroup = activeGroup;
+    for (const entry of entriesById.values()) {
+        if (oldGroup.hasLayer(entry.marker)) {
+            oldGroup.removeLayer(entry.marker);
+            newGroup.addLayer(entry.marker);
+        }
+    }
+    map.removeLayer(oldGroup);
+    map.addLayer(newGroup);
+    activeGroup = newGroup;
+    clusteringEnabled = enabled;
+}
 function createRefList(refs) {
     let listItems = "";
     for (const refId in refs) {
@@ -75,45 +95,56 @@ function createPopupContent(item) {
         </ul>
     `;
 }
-// id -> { item, marker, listEl }
+const SELECTED_MARKER_COLOR = "#e11d48";
+const SELECTED_MARKER_WEIGHT = 4;
+// id -> { item, marker, listEl, baseColor, baseWeight }
 const entriesById = new Map();
 const listEl = document.getElementById("site-list");
 const resultCountEl = document.getElementById("result-count");
 function setActiveListItem(id) {
     for (const entry of entriesById.values()) {
-        entry.listEl.classList.toggle("active", entry.item.id === id);
+        const isSelected = entry.item.id === id;
+        entry.listEl.classList.toggle("active", isSelected);
+        if (isSelected) {
+            entry.marker.setStyle({ color: SELECTED_MARKER_COLOR, weight: SELECTED_MARKER_WEIGHT });
+            entry.marker.bringToFront();
+        }
+        else {
+            entry.marker.setStyle({ color: entry.baseColor, weight: entry.baseWeight });
+        }
     }
-    const activeEntry = entriesById.get(id);
-    if (activeEntry) {
-        activeEntry.listEl.scrollIntoView({ block: "nearest" });
+    if (id !== null) {
+        const activeEntry = entriesById.get(id);
+        if (activeEntry) {
+            activeEntry.listEl.scrollIntoView({ block: "nearest" });
+        }
     }
 }
 const sitePanel = document.getElementById("site-panel");
 const sitePanelContent = document.getElementById("site-panel-content");
 const sitePanelClose = document.getElementById("site-panel-close");
-const sitePanelBackdrop = document.getElementById("site-panel-backdrop");
 function openSitePanel(item) {
     sitePanelContent.innerHTML = createPopupContent(item);
     sitePanel.classList.add("open");
     sitePanel.setAttribute("aria-hidden", "false");
-    sitePanelBackdrop.classList.add("open");
     setActiveListItem(item.id);
 }
 function closeSitePanel() {
     sitePanel.classList.remove("open");
     sitePanel.setAttribute("aria-hidden", "true");
-    sitePanelBackdrop.classList.remove("open");
+    setActiveListItem(null);
 }
 sitePanelClose.addEventListener("click", closeSitePanel);
-sitePanelBackdrop.addEventListener("click", closeSitePanel);
 for (const item of window.data) {
     const config = typeConfigFor(item.type);
     const refCount = Object.keys(item.refs).length;
     const hasDatacao = Boolean(item.datacao);
+    const baseColor = hasDatacao ? "#d4a017" : "#fff";
+    const baseWeight = hasDatacao ? 3 : 2;
     const marker = L.circleMarker([item.lat, item.long], {
-        radius: Math.min(6 + (refCount - 1) * 2, 14),
-        weight: hasDatacao ? 3 : 2,
-        color: hasDatacao ? "#d4a017" : "#fff",
+        radius: 8,
+        weight: baseWeight,
+        color: baseColor,
         fillColor: config.color,
         fillOpacity: 0.9
     });
@@ -124,14 +155,20 @@ for (const item of window.data) {
         <span class="site-type">${config.label}</span>
         <span class="site-refcount" title="${refCount} fonte${refCount === 1 ? "" : "s"} bibliográfica${refCount === 1 ? "" : "s"}">${refCount}×</span>`;
     li.addEventListener("click", () => {
-        clusterGroup.zoomToShowLayer(marker, () => {
+        if (clusteringEnabled) {
+            clusterGroup.zoomToShowLayer(marker, () => {
+                openSitePanel(item);
+                map.panTo(marker.getLatLng());
+            });
+        }
+        else {
+            map.setView(marker.getLatLng(), Math.max(map.getZoom(), 14));
             openSitePanel(item);
-            map.panTo(marker.getLatLng());
-        });
+        }
     });
     listEl.appendChild(li);
-    clusterGroup.addLayer(marker);
-    entriesById.set(item.id, { item, marker, listEl: li });
+    activeGroup.addLayer(marker);
+    entriesById.set(item.id, { item, marker, listEl: li, baseColor, baseWeight });
 }
 // Legenda
 const legend = L.control({ position: "bottomright" });
@@ -141,8 +178,7 @@ legend.onAdd = () => {
         .map((config) => `<div><span class="legend-swatch" style="background:${config.color}"></span>${config.label}</div>`)
         .join("");
     const datacaoItem = `<div><span class="legend-swatch legend-swatch-outline"></span>Datação por C14</div>`;
-    const refCountItem = `<div class="legend-note">Tamanho do marcador = nº de fontes bibliográficas</div>`;
-    div.innerHTML = typeItems + datacaoItem + refCountItem;
+    div.innerHTML = typeItems + datacaoItem;
     return div;
 };
 legend.addTo(map);
@@ -213,14 +249,14 @@ function applyFilters() {
         if (isVisible) {
             visibleCount++;
             listEl.style.display = "";
-            if (!clusterGroup.hasLayer(marker)) {
-                clusterGroup.addLayer(marker);
+            if (!activeGroup.hasLayer(marker)) {
+                activeGroup.addLayer(marker);
             }
         }
         else {
             listEl.style.display = "none";
-            if (clusterGroup.hasLayer(marker)) {
-                clusterGroup.removeLayer(marker);
+            if (activeGroup.hasLayer(marker)) {
+                activeGroup.removeLayer(marker);
             }
         }
     }
@@ -233,4 +269,26 @@ const sidebarToggle = document.getElementById("sidebar-toggle");
 sidebarToggle.addEventListener("click", () => {
     const isOpen = sidebar.classList.toggle("open");
     sidebarToggle.setAttribute("aria-expanded", String(isOpen));
+});
+// Modal de opções
+const optionsToggle = document.getElementById("options-toggle");
+const optionsModal = document.getElementById("options-modal");
+const optionsModalBackdrop = document.getElementById("options-modal-backdrop");
+const optionsModalClose = document.getElementById("options-modal-close");
+const clusteringToggle = document.getElementById("clustering-toggle");
+function openOptionsModal() {
+    optionsModal.classList.add("open");
+    optionsModal.setAttribute("aria-hidden", "false");
+    optionsModalBackdrop.classList.add("open");
+}
+function closeOptionsModal() {
+    optionsModal.classList.remove("open");
+    optionsModal.setAttribute("aria-hidden", "true");
+    optionsModalBackdrop.classList.remove("open");
+}
+optionsToggle.addEventListener("click", openOptionsModal);
+optionsModalClose.addEventListener("click", closeOptionsModal);
+optionsModalBackdrop.addEventListener("click", closeOptionsModal);
+clusteringToggle.addEventListener("change", (event) => {
+    setClusteringEnabled(event.target.checked);
 });

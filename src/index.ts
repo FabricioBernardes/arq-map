@@ -49,7 +49,28 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 const clusterGroup = L.markerClusterGroup();
-map.addLayer(clusterGroup);
+const plainGroup = L.layerGroup();
+let clusteringEnabled = true;
+let activeGroup: L.LayerGroup = clusterGroup;
+map.addLayer(activeGroup);
+
+function setClusteringEnabled(enabled: boolean): void {
+    if (enabled === clusteringEnabled) {
+        return;
+    }
+    const newGroup = enabled ? clusterGroup : plainGroup;
+    const oldGroup = activeGroup;
+    for (const entry of entriesById.values()) {
+        if (oldGroup.hasLayer(entry.marker)) {
+            oldGroup.removeLayer(entry.marker);
+            newGroup.addLayer(entry.marker);
+        }
+    }
+    map.removeLayer(oldGroup);
+    map.addLayer(newGroup);
+    activeGroup = newGroup;
+    clusteringEnabled = enabled;
+}
 
 function createRefList(refs: Record<string, string>): string {
     let listItems = "";
@@ -90,54 +111,67 @@ interface Entry {
     item: Site;
     marker: L.CircleMarker;
     listEl: HTMLLIElement;
+    baseColor: string;
+    baseWeight: number;
 }
 
-// id -> { item, marker, listEl }
+const SELECTED_MARKER_COLOR = "#e11d48";
+const SELECTED_MARKER_WEIGHT = 4;
+
+// id -> { item, marker, listEl, baseColor, baseWeight }
 const entriesById = new Map<number, Entry>();
 const listEl = document.getElementById("site-list") as HTMLUListElement;
 const resultCountEl = document.getElementById("result-count") as HTMLElement;
 
-function setActiveListItem(id: number): void {
+function setActiveListItem(id: number | null): void {
     for (const entry of entriesById.values()) {
-        entry.listEl.classList.toggle("active", entry.item.id === id);
+        const isSelected = entry.item.id === id;
+        entry.listEl.classList.toggle("active", isSelected);
+        if (isSelected) {
+            entry.marker.setStyle({ color: SELECTED_MARKER_COLOR, weight: SELECTED_MARKER_WEIGHT });
+            entry.marker.bringToFront();
+        } else {
+            entry.marker.setStyle({ color: entry.baseColor, weight: entry.baseWeight });
+        }
     }
-    const activeEntry = entriesById.get(id);
-    if (activeEntry) {
-        activeEntry.listEl.scrollIntoView({ block: "nearest" });
+    if (id !== null) {
+        const activeEntry = entriesById.get(id);
+        if (activeEntry) {
+            activeEntry.listEl.scrollIntoView({ block: "nearest" });
+        }
     }
 }
 
 const sitePanel = document.getElementById("site-panel") as HTMLElement;
 const sitePanelContent = document.getElementById("site-panel-content") as HTMLElement;
 const sitePanelClose = document.getElementById("site-panel-close") as HTMLElement;
-const sitePanelBackdrop = document.getElementById("site-panel-backdrop") as HTMLElement;
 
 function openSitePanel(item: Site): void {
     sitePanelContent.innerHTML = createPopupContent(item);
     sitePanel.classList.add("open");
     sitePanel.setAttribute("aria-hidden", "false");
-    sitePanelBackdrop.classList.add("open");
     setActiveListItem(item.id);
 }
 
 function closeSitePanel(): void {
     sitePanel.classList.remove("open");
     sitePanel.setAttribute("aria-hidden", "true");
-    sitePanelBackdrop.classList.remove("open");
+    setActiveListItem(null);
 }
 
 sitePanelClose.addEventListener("click", closeSitePanel);
-sitePanelBackdrop.addEventListener("click", closeSitePanel);
 
 for (const item of window.data) {
     const config = typeConfigFor(item.type);
     const refCount = Object.keys(item.refs).length;
     const hasDatacao = Boolean(item.datacao);
+    const baseColor = hasDatacao ? "#d4a017" : "#fff";
+    const baseWeight = hasDatacao ? 3 : 2;
 
     const marker = L.circleMarker([item.lat, item.long], {
-        radius: Math.min(6 + (refCount - 1) * 2, 14),
-        weight: hasDatacao ? 3 : 2,
-        color: hasDatacao ? "#d4a017" : "#fff",
+        radius: 8,
+        weight: baseWeight,
+        color: baseColor,
         fillColor: config.color,
         fillOpacity: 0.9
     });
@@ -150,15 +184,20 @@ for (const item of window.data) {
         <span class="site-type">${config.label}</span>
         <span class="site-refcount" title="${refCount} fonte${refCount === 1 ? "" : "s"} bibliográfica${refCount === 1 ? "" : "s"}">${refCount}×</span>`;
     li.addEventListener("click", () => {
-        clusterGroup.zoomToShowLayer(marker, () => {
+        if (clusteringEnabled) {
+            clusterGroup.zoomToShowLayer(marker, () => {
+                openSitePanel(item);
+                map.panTo(marker.getLatLng());
+            });
+        } else {
+            map.setView(marker.getLatLng(), Math.max(map.getZoom(), 14));
             openSitePanel(item);
-            map.panTo(marker.getLatLng());
-        });
+        }
     });
 
     listEl.appendChild(li);
-    clusterGroup.addLayer(marker);
-    entriesById.set(item.id, { item, marker, listEl: li });
+    activeGroup.addLayer(marker);
+    entriesById.set(item.id, { item, marker, listEl: li, baseColor, baseWeight });
 }
 
 // Legenda
@@ -172,8 +211,7 @@ legend.onAdd = () => {
         )
         .join("");
     const datacaoItem = `<div><span class="legend-swatch legend-swatch-outline"></span>Datação por C14</div>`;
-    const refCountItem = `<div class="legend-note">Tamanho do marcador = nº de fontes bibliográficas</div>`;
-    div.innerHTML = typeItems + datacaoItem + refCountItem;
+    div.innerHTML = typeItems + datacaoItem;
     return div;
 };
 legend.addTo(map);
@@ -250,13 +288,13 @@ function applyFilters(): void {
         if (isVisible) {
             visibleCount++;
             listEl.style.display = "";
-            if (!clusterGroup.hasLayer(marker)) {
-                clusterGroup.addLayer(marker);
+            if (!activeGroup.hasLayer(marker)) {
+                activeGroup.addLayer(marker);
             }
         } else {
             listEl.style.display = "none";
-            if (clusterGroup.hasLayer(marker)) {
-                clusterGroup.removeLayer(marker);
+            if (activeGroup.hasLayer(marker)) {
+                activeGroup.removeLayer(marker);
             }
         }
     }
@@ -272,4 +310,31 @@ const sidebarToggle = document.getElementById("sidebar-toggle") as HTMLElement;
 sidebarToggle.addEventListener("click", () => {
     const isOpen = sidebar.classList.toggle("open");
     sidebarToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+// Modal de opções
+const optionsToggle = document.getElementById("options-toggle") as HTMLElement;
+const optionsModal = document.getElementById("options-modal") as HTMLElement;
+const optionsModalBackdrop = document.getElementById("options-modal-backdrop") as HTMLElement;
+const optionsModalClose = document.getElementById("options-modal-close") as HTMLElement;
+const clusteringToggle = document.getElementById("clustering-toggle") as HTMLInputElement;
+
+function openOptionsModal(): void {
+    optionsModal.classList.add("open");
+    optionsModal.setAttribute("aria-hidden", "false");
+    optionsModalBackdrop.classList.add("open");
+}
+
+function closeOptionsModal(): void {
+    optionsModal.classList.remove("open");
+    optionsModal.setAttribute("aria-hidden", "true");
+    optionsModalBackdrop.classList.remove("open");
+}
+
+optionsToggle.addEventListener("click", openOptionsModal);
+optionsModalClose.addEventListener("click", closeOptionsModal);
+optionsModalBackdrop.addEventListener("click", closeOptionsModal);
+
+clusteringToggle.addEventListener("change", (event) => {
+    setClusteringEnabled((event.target as HTMLInputElement).checked);
 });
