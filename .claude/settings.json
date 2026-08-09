@@ -47,7 +47,17 @@
       "Bash(pkill -f \"http.server 8099\")",
       "Bash(git rm *)",
       "Bash(git -C /home/fbernardes/git/arq-map status --short .claude/settings.json)",
-      "Bash(git -C /home/fbernardes/git/arq-map ls-files .claude/)"
+      "Bash(git -C /home/fbernardes/git/arq-map ls-files .claude/)",
+      "Bash(python3 -m http.server 8123 --directory /home/fbernardes/git/arq-map)",
+      "Bash(timeout 15 bash -c 'until curl -sf http://localhost:8123 >/dev/null; do sleep 0.5; done')",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(npm root *)",
+      "Bash(node /tmp/claude-1000/-home-fbernardes-git-arq-map/6bb731e2-42f8-457e-b7d6-ebec248b3d0b/scratchpad/drive.js)",
+      "Bash(git -C /home/fbernardes/git/arq-map status --short)",
+      "Bash(git -C /home/fbernardes/git/arq-map diff .claude/settings.json)",
+      "Bash(python3 -m http.server 8123)",
+      "Bash(curl -s http://localhost:8123/index.html)",
+      "Bash(node /tmp/claude-1000/-home-fbernardes-git-arq-map/6bb731e2-42f8-457e-b7d6-ebec248b3d0b/scratchpad/drive_mobile.js)"
     ],
     "additionalDirectories": [
       "/tmp"

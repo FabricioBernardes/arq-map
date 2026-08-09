@@ -88,6 +88,24 @@ function setActiveListItem(id) {
         activeEntry.listEl.scrollIntoView({ block: "nearest" });
     }
 }
+const sitePanel = document.getElementById("site-panel");
+const sitePanelContent = document.getElementById("site-panel-content");
+const sitePanelClose = document.getElementById("site-panel-close");
+const sitePanelBackdrop = document.getElementById("site-panel-backdrop");
+function openSitePanel(item) {
+    sitePanelContent.innerHTML = createPopupContent(item);
+    sitePanel.classList.add("open");
+    sitePanel.setAttribute("aria-hidden", "false");
+    sitePanelBackdrop.classList.add("open");
+    setActiveListItem(item.id);
+}
+function closeSitePanel() {
+    sitePanel.classList.remove("open");
+    sitePanel.setAttribute("aria-hidden", "true");
+    sitePanelBackdrop.classList.remove("open");
+}
+sitePanelClose.addEventListener("click", closeSitePanel);
+sitePanelBackdrop.addEventListener("click", closeSitePanel);
 for (const item of window.data) {
     const config = typeConfigFor(item.type);
     const refCount = Object.keys(item.refs).length;
@@ -98,8 +116,8 @@ for (const item of window.data) {
         color: hasDatacao ? "#d4a017" : "#fff",
         fillColor: config.color,
         fillOpacity: 0.9
-    }).bindPopup(createPopupContent(item));
-    marker.on("popupopen", () => setActiveListItem(item.id));
+    });
+    marker.on("click", () => openSitePanel(item));
     const li = document.createElement("li");
     li.innerHTML = `<span class="site-swatch" style="background:${config.color}"></span>
         <span class="site-title">${item.title}</span>
@@ -107,7 +125,7 @@ for (const item of window.data) {
         <span class="site-refcount" title="${refCount} fonte${refCount === 1 ? "" : "s"} bibliográfica${refCount === 1 ? "" : "s"}">${refCount}×</span>`;
     li.addEventListener("click", () => {
         clusterGroup.zoomToShowLayer(marker, () => {
-            marker.openPopup();
+            openSitePanel(item);
             map.panTo(marker.getLatLng());
         });
     });
