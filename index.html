@@ -24,14 +24,18 @@
             </div>
             <button id="download-filtered" type="button" class="download-btn">⬇ Baixar sítios filtrados (GeoJSON)</button>
             <input type="search" id="site-search" placeholder="Buscar por nome..." aria-label="Buscar sítio por nome">
-            <fieldset id="type-filters">
-                <legend>Filtrar por tipo</legend>
-            </fieldset>
-            <details id="source-filters-details">
+            <details id="type-filters-details" class="sidebar-section" open>
+                <summary>Filtrar por tipo</summary>
+                <fieldset id="type-filters"></fieldset>
+            </details>
+            <details id="source-filters-details" class="sidebar-section">
                 <summary>Filtrar por fonte bibliográfica</summary>
                 <fieldset id="source-filters"></fieldset>
             </details>
-            <ul id="site-list"></ul>
+            <details id="site-list-details" class="sidebar-section" open>
+                <summary>Sítios</summary>
+                <ul id="site-list"></ul>
+            </details>
         </aside>
         <div id="map"></div>
         <aside id="site-panel" aria-hidden="true" aria-label="Detalhes do sítio">

@@ -69,7 +69,10 @@
       "Bash(curl -sf http://localhost:8123/geo.js)",
       "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/639b65e4-963d-466f-8b63-86b79de37c74/scratchpad/test.js)",
       "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/639b65e4-963d-466f-8b63-86b79de37c74/scratchpad/test2.js)",
-      "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/639b65e4-963d-466f-8b63-86b79de37c74/scratchpad/test3.js)"
+      "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/639b65e4-963d-466f-8b63-86b79de37c74/scratchpad/test3.js)",
+      "Bash(chromium-cli --help)",
+      "Bash(npx --no-install playwright install --dry-run chromium)",
+      "Bash(node check_sidebar.mjs)"
     ],
     "additionalDirectories": [
       "/tmp"
