@@ -145,8 +145,12 @@ function setActiveListItem(id: number | null): void {
 const sitePanel = document.getElementById("site-panel") as HTMLElement;
 const sitePanelContent = document.getElementById("site-panel-content") as HTMLElement;
 const sitePanelClose = document.getElementById("site-panel-close") as HTMLElement;
+const sitePanelDownload = document.getElementById("site-panel-download") as HTMLButtonElement;
+
+let currentSiteItem: Site | null = null;
 
 function openSitePanel(item: Site): void {
+    currentSiteItem = item;
     sitePanelContent.innerHTML = createPopupContent(item);
     sitePanel.classList.add("open");
     sitePanel.setAttribute("aria-hidden", "false");
@@ -160,6 +164,17 @@ function closeSitePanel(): void {
 }
 
 sitePanelClose.addEventListener("click", closeSitePanel);
+
+sitePanelDownload.addEventListener("click", () => {
+    if (!currentSiteItem) {
+        return;
+    }
+    const featureCollection = buildFeatureCollection([currentSiteItem], {
+        scope: "sitio-unico",
+        site_id: currentSiteItem.id
+    });
+    downloadGeoJson(featureCollection, `arqmap-sitio-${currentSiteItem.id}.geojson`);
+});
 
 for (const item of window.data) {
     const config = typeConfigFor(item.type);
@@ -274,16 +289,20 @@ searchInput.addEventListener("input", () => {
     searchDebounce = window.setTimeout(applyFilters, 150);
 });
 
-function applyFilters(): void {
+function matchesFilters(item: Site): boolean {
     const query = normalize(searchInput.value.trim());
+    const matchesType = activeTypes.has(item.type in TYPE_CONFIG ? item.type : "");
+    const matchesSource = Object.keys(item.refs).some((ref) => activeRefs.has(ref));
+    const matchesSearch = query === "" || normalize(item.title).includes(query);
+    return matchesType && matchesSource && matchesSearch;
+}
+
+function applyFilters(): void {
     let visibleCount = 0;
 
     for (const entry of entriesById.values()) {
         const { item, marker, listEl } = entry;
-        const matchesType = activeTypes.has(item.type in TYPE_CONFIG ? item.type : "");
-        const matchesSource = Object.keys(item.refs).some((ref) => activeRefs.has(ref));
-        const matchesSearch = query === "" || normalize(item.title).includes(query);
-        const isVisible = matchesType && matchesSource && matchesSearch;
+        const isVisible = matchesFilters(item);
 
         if (isVisible) {
             visibleCount++;
@@ -303,6 +322,19 @@ function applyFilters(): void {
 }
 
 applyFilters();
+
+// Download do conjunto filtrado
+const downloadFilteredBtn = document.getElementById("download-filtered") as HTMLButtonElement;
+downloadFilteredBtn.addEventListener("click", () => {
+    const visibleItems = [...entriesById.values()].map((entry) => entry.item).filter(matchesFilters);
+    const featureCollection = buildFeatureCollection(visibleItems, {
+        scope: "conjunto-filtrado",
+        busca: searchInput.value.trim() || null,
+        tipos_ativos: [...activeTypes],
+        fontes_ativas: [...activeRefs]
+    });
+    downloadGeoJson(featureCollection, "arqmap-sitios-filtrados.geojson");
+});
 
 // Sidebar toggle (mobile)
 const sidebar = document.getElementById("sidebar") as HTMLElement;
@@ -337,4 +369,11 @@ optionsModalBackdrop.addEventListener("click", closeOptionsModal);
 
 clusteringToggle.addEventListener("change", (event) => {
     setClusteringEnabled((event.target as HTMLInputElement).checked);
+});
+
+// Download da base completa
+const downloadAllBtn = document.getElementById("download-all") as HTMLButtonElement;
+downloadAllBtn.addEventListener("click", () => {
+    const featureCollection = buildFeatureCollection(window.data, { scope: "base-completa" });
+    downloadGeoJson(featureCollection, "arqmap-base-completa.geojson");
 });

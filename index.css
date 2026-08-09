@@ -333,6 +333,35 @@ body {
     cursor: pointer;
 }
 
+.download-btn {
+    display: block;
+    width: 100%;
+    border: 1px solid #1f6feb;
+    border-radius: 4px;
+    background: #eaf2fe;
+    color: #1f2937;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+}
+
+.download-btn:hover {
+    background: #d7e6fc;
+}
+
+#site-panel-download {
+    clear: both;
+    margin-bottom: 0.75rem;
+}
+
+.options-note {
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
 #site-panel-content h3{
     margin: 0 0 10px 0;
 }

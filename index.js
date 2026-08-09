@@ -123,7 +123,10 @@ function setActiveListItem(id) {
 const sitePanel = document.getElementById("site-panel");
 const sitePanelContent = document.getElementById("site-panel-content");
 const sitePanelClose = document.getElementById("site-panel-close");
+const sitePanelDownload = document.getElementById("site-panel-download");
+let currentSiteItem = null;
 function openSitePanel(item) {
+    currentSiteItem = item;
     sitePanelContent.innerHTML = createPopupContent(item);
     sitePanel.classList.add("open");
     sitePanel.setAttribute("aria-hidden", "false");
@@ -135,6 +138,16 @@ function closeSitePanel() {
     setActiveListItem(null);
 }
 sitePanelClose.addEventListener("click", closeSitePanel);
+sitePanelDownload.addEventListener("click", () => {
+    if (!currentSiteItem) {
+        return;
+    }
+    const featureCollection = buildFeatureCollection([currentSiteItem], {
+        scope: "sitio-unico",
+        site_id: currentSiteItem.id
+    });
+    downloadGeoJson(featureCollection, `arqmap-sitio-${currentSiteItem.id}.geojson`);
+});
 for (const item of window.data) {
     const config = typeConfigFor(item.type);
     const refCount = Object.keys(item.refs).length;
@@ -237,15 +250,18 @@ searchInput.addEventListener("input", () => {
     clearTimeout(searchDebounce);
     searchDebounce = window.setTimeout(applyFilters, 150);
 });
-function applyFilters() {
+function matchesFilters(item) {
     const query = normalize(searchInput.value.trim());
+    const matchesType = activeTypes.has(item.type in TYPE_CONFIG ? item.type : "");
+    const matchesSource = Object.keys(item.refs).some((ref) => activeRefs.has(ref));
+    const matchesSearch = query === "" || normalize(item.title).includes(query);
+    return matchesType && matchesSource && matchesSearch;
+}
+function applyFilters() {
     let visibleCount = 0;
     for (const entry of entriesById.values()) {
         const { item, marker, listEl } = entry;
-        const matchesType = activeTypes.has(item.type in TYPE_CONFIG ? item.type : "");
-        const matchesSource = Object.keys(item.refs).some((ref) => activeRefs.has(ref));
-        const matchesSearch = query === "" || normalize(item.title).includes(query);
-        const isVisible = matchesType && matchesSource && matchesSearch;
+        const isVisible = matchesFilters(item);
         if (isVisible) {
             visibleCount++;
             listEl.style.display = "";
@@ -263,6 +279,18 @@ function applyFilters() {
     resultCountEl.textContent = `${visibleCount} de ${entriesById.size} sítios`;
 }
 applyFilters();
+// Download do conjunto filtrado
+const downloadFilteredBtn = document.getElementById("download-filtered");
+downloadFilteredBtn.addEventListener("click", () => {
+    const visibleItems = [...entriesById.values()].map((entry) => entry.item).filter(matchesFilters);
+    const featureCollection = buildFeatureCollection(visibleItems, {
+        scope: "conjunto-filtrado",
+        busca: searchInput.value.trim() || null,
+        tipos_ativos: [...activeTypes],
+        fontes_ativas: [...activeRefs]
+    });
+    downloadGeoJson(featureCollection, "arqmap-sitios-filtrados.geojson");
+});
 // Sidebar toggle (mobile)
 const sidebar = document.getElementById("sidebar");
 const sidebarToggle = document.getElementById("sidebar-toggle");
@@ -291,4 +319,10 @@ optionsModalClose.addEventListener("click", closeOptionsModal);
 optionsModalBackdrop.addEventListener("click", closeOptionsModal);
 clusteringToggle.addEventListener("change", (event) => {
     setClusteringEnabled(event.target.checked);
+});
+// Download da base completa
+const downloadAllBtn = document.getElementById("download-all");
+downloadAllBtn.addEventListener("click", () => {
+    const featureCollection = buildFeatureCollection(window.data, { scope: "base-completa" });
+    downloadGeoJson(featureCollection, "arqmap-base-completa.geojson");
 });

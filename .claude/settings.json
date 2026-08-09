@@ -59,7 +59,17 @@
       "Bash(curl -s http://localhost:8123/index.html)",
       "Bash(node /tmp/claude-1000/-home-fbernardes-git-arq-map/6bb731e2-42f8-457e-b7d6-ebec248b3d0b/scratchpad/drive_mobile.js)",
       "Bash(which chromium-cli *)",
-      "Read(//tmp/claude-1000/bundled-skills/**)"
+      "Read(//tmp/claude-1000/bundled-skills/**)",
+      "Read(//home/fbernardes/.claude/**)",
+      "Bash(find / -maxdepth 4 -iname \"*chromium-cli*\")",
+      "Bash(npx --version)",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(npx playwright *)",
+      "Bash(node -e \"process.env.NODE_PATH='/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules'; require\\('module'\\).Module._initPaths\\(\\); console.log\\(require.resolve\\('playwright'\\)\\)\")",
+      "Bash(curl -sf http://localhost:8123/geo.js)",
+      "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/639b65e4-963d-466f-8b63-86b79de37c74/scratchpad/test.js)",
+      "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/639b65e4-963d-466f-8b63-86b79de37c74/scratchpad/test2.js)",
+      "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/639b65e4-963d-466f-8b63-86b79de37c74/scratchpad/test3.js)"
     ],
     "additionalDirectories": [
       "/tmp"

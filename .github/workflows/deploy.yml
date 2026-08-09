@@ -34,7 +34,7 @@ jobs:
       - name: Assemble deploy folder
         run: |
           mkdir _site
-          cp index.html index.css data.js index.js dissertacao_fabricio_bernardes.pdf _site/
+          cp index.html index.css data.js export.js index.js dissertacao_fabricio_bernardes.pdf _site/
 
       - uses: actions/upload-pages-artifact@v3
         with:

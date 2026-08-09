@@ -20,9 +20,9 @@
     <div class="page-wrapper">
         <aside id="sidebar">
             <div class="sidebar-header">
-                <h1>ARQ-MAP</h1>
                 <p id="result-count"></p>
             </div>
+            <button id="download-filtered" type="button" class="download-btn">⬇ Baixar sítios filtrados (GeoJSON)</button>
             <input type="search" id="site-search" placeholder="Buscar por nome..." aria-label="Buscar sítio por nome">
             <fieldset id="type-filters">
                 <legend>Filtrar por tipo</legend>
@@ -36,6 +36,7 @@
         <div id="map"></div>
         <aside id="site-panel" aria-hidden="true" aria-label="Detalhes do sítio">
             <button id="site-panel-close" type="button" aria-label="Fechar detalhes do sítio">✕</button>
+            <button id="site-panel-download" type="button" class="download-btn">⬇ Baixar GeoJSON deste sítio</button>
             <div id="site-panel-content"></div>
         </aside>
     </div>
@@ -53,11 +54,17 @@
                     Agrupar pontos próximos conforme o zoom
                 </label>
             </section>
+            <section class="options-section">
+                <h3>Dados</h3>
+                <p class="options-note">As coordenadas (latitude/longitude, em graus decimais) são exibidas e exportadas exatamente como constam na base de dados original, sem qualquer conversão ou reprojeção.</p>
+                <button id="download-all" type="button" class="download-btn">⬇ Baixar toda a base de dados (GeoJSON)</button>
+            </section>
         </div>
     </div>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" integrity="sha256-Hk4dIpcqOSb0hZjgyvFOP+cEmDXUKKNE/tT542ZbNQg=" crossorigin=""></script>
     <script src="./data.js"></script>
+    <script src="./export.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>
