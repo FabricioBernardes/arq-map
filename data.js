@@ -1,4 +1,5 @@
-window.references = {
+"use strict";
+const references = {
     1: {
         label: "Pernigotti e Almeida (1961)",
         citation: "PERNIGOTTI, Oscar; ALMEIDA, Áureo. Depósitos arqueológicos do município de Rio Grande. Monografia. Rio Grande, 1961.",
@@ -54,8 +55,7 @@ window.references = {
         institution: "LEPAN / Reserva Técnica FURG"
     }
 };
-
-window.data = [
+const data = [
     {
         "id": 1,
         "title": "6 Casa Abandonada",
@@ -708,3 +708,5 @@ window.data = [
         "lat": -31.9188404
     }
 ];
+window.references = references;
+window.data = data;

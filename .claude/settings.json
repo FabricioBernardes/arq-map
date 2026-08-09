@@ -30,7 +30,27 @@
       "Bash(NODE_PATH=/home/fbernardes/.nvm/versions/node/v22.14.0/lib/node_modules node /tmp/claude-1000/-home-fbernardes-git-arq-map/f34bd7c2-24fc-48c1-930b-93a8ba9a8ef2/scratchpad/probe3.js)",
       "Bash(lsof -ti:8791 -sTCP:LISTEN)",
       "Bash(node --check /home/fbernardes/git/arq-map/index.js)",
-      "Bash(lsof -ti:8792 -sTCP:LISTEN)"
+      "Bash(lsof -ti:8792 -sTCP:LISTEN)",
+      "Bash(xdg-open /tmp/architecture-review-20260809-131816.html)",
+      "Bash(disown)",
+      "Bash(git -C /home/fbernardes/git/arq-map remote -v)",
+      "Bash(git -C /home/fbernardes/git/arq-map branch -a)",
+      "Bash(npm run *)",
+      "Bash(npm ls *)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(timeout 20 google-chrome --headless --disable-gpu --no-sandbox --virtual-time-budget=8000 --dump-dom http://localhost:8099/index.html)",
+      "Bash(echo \"exit:$?\")",
+      "Read(//tmp/**)",
+      "Bash(timeout 20 google-chrome --headless --disable-gpu --no-sandbox --virtual-time-budget=8000 --enable-logging=stderr --v=1 --dump-dom http://localhost:8099/index.html)",
+      "Bash(grep -o 'type=\"checkbox\"' /tmp/arqmap-dom.html | wc -l *)",
+      "Bash(pkill -f \"http.server 8099\")",
+      "Bash(git rm *)",
+      "Bash(git -C /home/fbernardes/git/arq-map status --short .claude/settings.json)",
+      "Bash(git -C /home/fbernardes/git/arq-map ls-files .claude/)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
     ]
   }
 }

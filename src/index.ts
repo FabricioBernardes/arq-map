@@ -1,22 +1,26 @@
-"use strict";
 const TYPE_CONFIG = {
     "Cerrito": { color: "#a0522d", label: "Cerrito" },
     "Sítio sobre dunas": { color: "#1f6feb", label: "Sítio sobre dunas" },
     "Cerrito/Sítio sobre dunas": { color: "#8e44ad", label: "Cerrito/Sítio sobre dunas" },
     "": { color: "#6b7280", label: "Não especificado" }
 };
-function typeConfigFor(type) {
+
+type SiteType = keyof typeof TYPE_CONFIG;
+
+function typeConfigFor(type: SiteType) {
     return TYPE_CONFIG[type] || TYPE_CONFIG[""];
 }
-function normalize(str) {
+
+function normalize(str: string): string {
     return str
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .toLowerCase();
 }
-function assertDataIntegrity(sites, references) {
-    const seenIds = new Set();
-    const duplicateIds = new Set();
+
+function assertDataIntegrity(sites: Site[], references: Record<string, Reference>): void {
+    const seenIds = new Set<number>();
+    const duplicateIds = new Set<number>();
     for (const site of sites) {
         if (seenIds.has(site.id)) {
             duplicateIds.add(site.id);
@@ -26,6 +30,7 @@ function assertDataIntegrity(sites, references) {
     if (duplicateIds.size > 0) {
         throw new Error(`Sítios com id duplicado: ${[...duplicateIds].join(", ")}`);
     }
+
     for (const site of sites) {
         for (const refId of Object.keys(site.refs)) {
             if (!(refId in references)) {
@@ -34,15 +39,19 @@ function assertDataIntegrity(sites, references) {
         }
     }
 }
+
 assertDataIntegrity(window.data, window.references);
+
 const map = L.map("map").setView([-31.946931, -52.219278], 10);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: "© OpenStreetMap"
 }).addTo(map);
+
 const clusterGroup = L.markerClusterGroup();
 map.addLayer(clusterGroup);
-function createRefList(refs) {
+
+function createRefList(refs: Record<string, string>): string {
     let listItems = "";
     for (const refId in refs) {
         const meta = window.references[refId];
@@ -56,7 +65,8 @@ function createRefList(refs) {
     }
     return listItems;
 }
-function createPopupContent(item) {
+
+function createPopupContent(item: Site): string {
     const refList = createRefList(item.refs);
     const typeLabel = typeConfigFor(item.type).label;
     const refCount = Object.keys(item.refs).length;
@@ -75,11 +85,19 @@ function createPopupContent(item) {
         </ul>
     `;
 }
+
+interface Entry {
+    item: Site;
+    marker: L.CircleMarker;
+    listEl: HTMLLIElement;
+}
+
 // id -> { item, marker, listEl }
-const entriesById = new Map();
-const listEl = document.getElementById("site-list");
-const resultCountEl = document.getElementById("result-count");
-function setActiveListItem(id) {
+const entriesById = new Map<number, Entry>();
+const listEl = document.getElementById("site-list") as HTMLUListElement;
+const resultCountEl = document.getElementById("result-count") as HTMLElement;
+
+function setActiveListItem(id: number): void {
     for (const entry of entriesById.values()) {
         entry.listEl.classList.toggle("active", entry.item.id === id);
     }
@@ -88,10 +106,12 @@ function setActiveListItem(id) {
         activeEntry.listEl.scrollIntoView({ block: "nearest" });
     }
 }
+
 for (const item of window.data) {
     const config = typeConfigFor(item.type);
     const refCount = Object.keys(item.refs).length;
     const hasDatacao = Boolean(item.datacao);
+
     const marker = L.circleMarker([item.lat, item.long], {
         radius: Math.min(6 + (refCount - 1) * 2, 14),
         weight: hasDatacao ? 3 : 2,
@@ -99,7 +119,9 @@ for (const item of window.data) {
         fillColor: config.color,
         fillOpacity: 0.9
     }).bindPopup(createPopupContent(item));
+
     marker.on("popupopen", () => setActiveListItem(item.id));
+
     const li = document.createElement("li");
     li.innerHTML = `<span class="site-swatch" style="background:${config.color}"></span>
         <span class="site-title">${item.title}</span>
@@ -111,16 +133,21 @@ for (const item of window.data) {
             map.panTo(marker.getLatLng());
         });
     });
+
     listEl.appendChild(li);
     clusterGroup.addLayer(marker);
     entriesById.set(item.id, { item, marker, listEl: li });
 }
+
 // Legenda
 const legend = L.control({ position: "bottomright" });
 legend.onAdd = () => {
     const div = L.DomUtil.create("div", "legend");
     const typeItems = Object.values(TYPE_CONFIG)
-        .map((config) => `<div><span class="legend-swatch" style="background:${config.color}"></span>${config.label}</div>`)
+        .map(
+            (config) =>
+                `<div><span class="legend-swatch" style="background:${config.color}"></span>${config.label}</div>`
+        )
         .join("");
     const datacaoItem = `<div><span class="legend-swatch legend-swatch-outline"></span>Datação por C14</div>`;
     const refCountItem = `<div class="legend-note">Tamanho do marcador = nº de fontes bibliográficas</div>`;
@@ -128,28 +155,30 @@ legend.onAdd = () => {
     return div;
 };
 legend.addTo(map);
+
 // Filtro por tipo
-const typeFiltersEl = document.getElementById("type-filters");
-const activeTypes = new Set(Object.keys(TYPE_CONFIG));
-for (const [type, config] of Object.entries(TYPE_CONFIG)) {
+const typeFiltersEl = document.getElementById("type-filters") as HTMLElement;
+const activeTypes = new Set<SiteType>(Object.keys(TYPE_CONFIG) as SiteType[]);
+
+for (const [type, config] of Object.entries(TYPE_CONFIG) as [SiteType, { color: string; label: string }][]) {
     const id = `filter-${config.label.replace(/\s+/g, "-")}`;
     const label = document.createElement("label");
     label.className = "type-filter";
     label.innerHTML = `<input type="checkbox" id="${id}" checked> ${config.label}`;
-    label.querySelector("input").addEventListener("change", (event) => {
-        if (event.target.checked) {
+    label.querySelector("input")!.addEventListener("change", (event) => {
+        if ((event.target as HTMLInputElement).checked) {
             activeTypes.add(type);
-        }
-        else {
+        } else {
             activeTypes.delete(type);
         }
         applyFilters();
     });
     typeFiltersEl.appendChild(label);
 }
+
 // Filtro por fonte bibliográfica
-const sourceFiltersEl = document.getElementById("source-filters");
-const allRefIds = [];
+const sourceFiltersEl = document.getElementById("source-filters") as HTMLElement;
+const allRefIds: string[] = [];
 for (const item of window.data) {
     for (const refId of Object.keys(item.refs)) {
         if (!allRefIds.includes(refId)) {
@@ -158,60 +187,66 @@ for (const item of window.data) {
     }
 }
 allRefIds.sort((a, b) => Number(a) - Number(b));
-const activeRefs = new Set(allRefIds);
+const activeRefs = new Set<string>(allRefIds);
+
 for (const refId of allRefIds) {
     const refLabel = window.references[refId].label;
     const id = `filter-source-${refId}`;
     const label = document.createElement("label");
     label.className = "type-filter";
     label.innerHTML = `<input type="checkbox" id="${id}" checked> ${refLabel}`;
-    label.querySelector("input").addEventListener("change", (event) => {
-        if (event.target.checked) {
+    label.querySelector("input")!.addEventListener("change", (event) => {
+        if ((event.target as HTMLInputElement).checked) {
             activeRefs.add(refId);
-        }
-        else {
+        } else {
             activeRefs.delete(refId);
         }
         applyFilters();
     });
     sourceFiltersEl.appendChild(label);
 }
+
 // Busca
-const searchInput = document.getElementById("site-search");
-let searchDebounce;
+const searchInput = document.getElementById("site-search") as HTMLInputElement;
+let searchDebounce: number | undefined;
 searchInput.addEventListener("input", () => {
     clearTimeout(searchDebounce);
     searchDebounce = window.setTimeout(applyFilters, 150);
 });
-function applyFilters() {
+
+function applyFilters(): void {
     const query = normalize(searchInput.value.trim());
     let visibleCount = 0;
+
     for (const entry of entriesById.values()) {
         const { item, marker, listEl } = entry;
         const matchesType = activeTypes.has(item.type in TYPE_CONFIG ? item.type : "");
         const matchesSource = Object.keys(item.refs).some((ref) => activeRefs.has(ref));
         const matchesSearch = query === "" || normalize(item.title).includes(query);
         const isVisible = matchesType && matchesSource && matchesSearch;
+
         if (isVisible) {
             visibleCount++;
             listEl.style.display = "";
             if (!clusterGroup.hasLayer(marker)) {
                 clusterGroup.addLayer(marker);
             }
-        }
-        else {
+        } else {
             listEl.style.display = "none";
             if (clusterGroup.hasLayer(marker)) {
                 clusterGroup.removeLayer(marker);
             }
         }
     }
+
     resultCountEl.textContent = `${visibleCount} de ${entriesById.size} sítios`;
 }
+
 applyFilters();
+
 // Sidebar toggle (mobile)
-const sidebar = document.getElementById("sidebar");
-const sidebarToggle = document.getElementById("sidebar-toggle");
+const sidebar = document.getElementById("sidebar") as HTMLElement;
+const sidebarToggle = document.getElementById("sidebar-toggle") as HTMLElement;
 sidebarToggle.addEventListener("click", () => {
     const isOpen = sidebar.classList.toggle("open");
     sidebarToggle.setAttribute("aria-expanded", String(isOpen));
