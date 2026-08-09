@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(python3 -)",
+      "Bash(node -e \"require.resolve\\('playwright'\\)\")",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright --help)",
+      "Read(//home/fbernardes/.cache/ms-playwright/**)",
+      "Bash(find / -maxdepth 4 -iname \"*playwright*\" -type d)",
+      "Bash(mkdir -p /tmp/claude-1000/-home-fbernardes-git-arq-map/186a15e3-9e71-4380-ae43-e888e6dd8712/scratchpad/shots)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node drive.mjs)",
+      "Read(//home/fbernardes/.cache/ms-playwright/chromium-1228/**)",
+      "Read(//home/fbernardes/.cache/ms-playwright/chromium_headless_shell-1228/**)",
+      "Bash(lsof -ti:8123 -sTCP:LISTEN)",
+      "Bash(xargs -r kill)"
+    ]
+  }
+}
